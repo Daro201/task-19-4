@@ -22,23 +22,23 @@ function comments(state = [], action) {
             , ...comments];
 
         case REMOVE_COMMENT:
-            return comments: comments.filter(comment => comment.id !== action.id);
+            return comments.filter(comment => comment.id !== action.id);
         case EDIT_COMMENT:
-            return comments: comments.map(comment => {
+            return comments.map(comment => {
             	if(comment.id === action.id) {
             	return {...comment, text: action.text} 
             	}  
             return comment;
         	});
     	case THUMB_UP_COMMENT:
-            return comments: comments.map(comment => {
+            return comments.map(comment => {
                 if(comment.id === action.id) {
                 return {...comment, votes: ++comment.votes}
                 }
             return comment;
             });
         case THUMB_DOWN_COMMENT:
-            return comments: comments.map(comment => {
+            return comments.map(comment => {
                 if(comment.id === action.id) {
                 return {...comment, votes: --comment.votes}
                 }
